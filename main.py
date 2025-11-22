@@ -4,9 +4,9 @@ import requests
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
-def home():
+def uni_search():
     html = """
-    <h1>University Search</h1>
+    <h1>Kellen's Uni Search</h1>
     <form method="POST">
         Country: <input type="text" name="country" required>
         Filter: <input type="text" name="filter">
@@ -28,7 +28,7 @@ def home():
                 html += f"<li>{uni['name']}</li>"
             html += "</ul>"
         except:
-            html += "<p>Error loading data.</p>"
+            html += "<p>Oops... Unable to find data</p>"
             
     return html
 
